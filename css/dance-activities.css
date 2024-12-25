@@ -1,0 +1,300 @@
+/* 页面整体布局 */
+.activities-page {
+    padding-top: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    display: grid;
+    gap: 40px;
+}
+
+/* 活动部分布局 */
+.activity-section {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.activity-section:hover {
+    transform: translateY(-5px);
+}
+
+/* 活动内容布局 */
+.activity-content {
+    display: grid;
+    grid-template-columns: 3fr 1fr;  /* 调整媒体和信息的比例 */
+    gap: 25px;
+    padding: 25px;
+}
+
+/* 照片网格布局 */
+.activity-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 0;
+}
+
+/* 照片样式 */
+.activity-gallery img {
+    width: 100%;
+    height: 300px;  /* 统一基础高度 */
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: zoom-in;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.activity-gallery img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* 视频容器样式 */
+.activity-video {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.activity-video video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+}
+
+/* 活动信息样式 */
+.activity-info {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    height: fit-content;
+}
+
+/* 特殊布局处理 */
+/* 第六次公演布局 */
+.activity-section:has(.performance6-photo) .activity-media {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 校庆晚会布局 */
+.activity-gallery:has(.anniversary-photo) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+/* 政法大学演出布局 */
+.activity-gallery:has(.nwupl-photo) {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+    .activity-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .activity-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .activity-gallery img {
+        height: 220px;
+    }
+    
+    .activity-section {
+        margin: 0 15px;
+    }
+}
+
+/* 第六次公演照片 */
+.activity-gallery .performance6-photo {
+    height: 350px;
+}
+
+/* ��舞赛照片 */
+.activity-gallery .competition-photo {
+    height: 250px;
+}
+
+/* TW街舞社考队照片 */
+.activity-gallery .tw-exam-photo {
+    height: 260px;
+}
+
+/* 校庆晚会照片 */
+.activity-gallery .anniversary-photo {
+    height: 270px;
+}
+
+/* 政法大学演出照片 */
+.activity-gallery .nwupl-photo {
+    height: 300px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .activity-gallery img {
+        height: 220px;
+    }
+    
+    .activity-gallery .performance6-photo {
+        height: 280px;
+    }
+    
+    .activity-gallery .nwupl-photo {
+        height: 250px;
+    }
+}
+
+/* 放大查看效果 */
+.enlarged-photo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.enlarged-photo.show {
+    opacity: 1;
+}
+
+.enlarged-photo img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.enlarged-photo.show img {
+    transform: scale(1);
+}
+
+/* 导航按钮样式 */
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.prev-button {
+    left: 20px;
+}
+
+.next-button {
+    right: 20px;
+}
+
+/* 关闭按钮 */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.close-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+/* 第五次公演照片样式 */
+.performance-section {
+    margin-bottom: 30px;
+}
+
+.performance-section .photos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.performance-section .performance-photo {
+    width: 100%;
+    height: 300px;  /* 统一照片高度 */
+    object-fit: contain;
+    border-radius: 12px;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 悬停放大效果 */
+.performance-section .performance-photo:hover {
+    transform: scale(1.05);
+}
+
+/* 点击放大效果 */
+.performance-section .performance-photo.clicked {
+    transform: scale(1.1);
+}
+
+/* 视频容器样式 */
+.video-container {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.video-container video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .performance-section .photos {
+        grid-template-columns: 1fr;
+    }
+    
+    .performance-section .performance-photo {
+        height: 250px;
+    }
+}
+
+.dance-description .description-box {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px;
+} 

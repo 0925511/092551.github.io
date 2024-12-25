@@ -1,0 +1,405 @@
+:root {
+    /* 圣诞主题配色 */
+    --christmas-red: #8B0000;     /* 暗红色 */
+    --christmas-dark-red: #640000; /* 更深的红色 */
+    --christmas-green: #2F5233;    /* 深绿色 */
+    --christmas-gold: #F8B229;     /* 金色 */
+    --christmas-white: #F4F4F4;    /* 浅灰白色 */
+    --christmas-dark: #1C2826;     /* 深色 */
+    --christmas-accent: #E8C7C8;   /* 浅粉红色装饰色 */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: var(--christmas-white);
+    color: var(--christmas-dark);
+}
+
+/* 导航栏样式 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--christmas-red);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--christmas-white);
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--christmas-white);
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: var(--christmas-dark-red);
+    color: var(--christmas-gold);
+}
+
+/* 页面内容样式 */
+.section {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border: 2px solid var(--christmas-accent);
+    max-width: 1200px;
+}
+
+.section h2 {
+    color: var(--christmas-red);
+    border-bottom: 3px solid var(--christmas-green);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* 主页轮播图样式 */
+.home-carousel {
+    margin-top: 60px;
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 2px solid var(--christmas-accent);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-carousel .carousel-container {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.home-carousel .carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.home-carousel .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 轮播按钮样式 */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--christmas-red);
+    color: var(--christmas-white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background: var(--christmas-dark-red);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev {
+    left: 20px;
+}
+
+.carousel-btn.next {
+    right: 20px;
+}
+
+/* 页脚样式 */
+footer {
+    background: var(--christmas-dark);
+    color: var(--christmas-white);
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 返回顶部按钮 */
+#back-to-top {
+    background: var(--christmas-red);
+    color: var(--christmas-white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#back-to-top:hover {
+    background: var(--christmas-dark-red);
+    transform: translateY(-2px);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .section {
+        margin: 15px;
+        padding: 20px;
+    }
+    
+    .home-carousel {
+        height: 300px;
+        margin: 60px 15px 0;
+    }
+} 
+
+/* 个人介绍样式 */
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* 照片与基本信息齐平 */
+    gap: 20px;
+    padding: 20px;
+    text-align: left;
+}
+
+.profile-image {
+    width: 180px;  /* 进一步放大照片 */
+    height: 240px; /* 进一步放大照片 */
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    border: 2px solid var(--christmas-accent);
+    cursor: zoom-in; /* 指示可点击放大 */
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h3 {
+    color: var(--christmas-red);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--christmas-green);
+}
+
+.profile-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-info li {
+    margin-bottom: 10px;
+    color: var(--christmas-dark);
+    padding-left: 20px;
+    position: relative;
+}
+
+.profile-info li:before {
+    content: "🎄";
+    position: absolute;
+    left: 0;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .profile-info li {
+        text-align: left;
+    }
+} 
+
+.top-image {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+}
+
+.banner-image {
+    width: 90%; /* Adjust the width percentage as needed */
+    max-width: 1200px; /* Set a maximum width */
+    height: auto;
+    display: block;
+} 
+
+.top-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.banner-image:hover {
+    transform: scale(1.05);
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #717171;
+}
+
+.text-section {
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    overflow: hidden; /* 确保内容不会溢出 */
+}
+
+.text-section h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.photo-image {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.photo-image:hover {
+    transform: scale(1.05);
+} 

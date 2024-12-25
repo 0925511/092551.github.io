@@ -1,0 +1,38 @@
+personal-website/
+├── index.html
+├── css/
+│   ├── style.css
+│   ├── hobbies.css
+│   └── dance-activities.css
+├── js/
+│   ├── main.js
+│   └── carousel.js
+├── images/
+│   ├── profile.jpg
+│   ├── slide1.jpg
+│   ├── slide2.png
+│   ├── dance.jpg
+│   ├── photography.jpg
+│   ├── idol.jpg
+│   ├── idol/
+│   │   ├── twice.jpg
+│   │   ├── newjeans.jpg
+│   │   ├── wayv.jpg
+│   │   ├── nct127.jpg
+│   │   └── riize.jpg
+│   ├── photo/
+│   │   └── photo1.jpg  # 新添加的摄影作品
+│   └── dance/
+│       ├── performance5_1.jpg
+│       └── ...
+├── videos/
+│   └── dance/
+│       ├── performance5.mp4
+│       ├── sports_opening.mp4
+│       ├── cheerleading.mp4
+│       ├── performance6.mp4
+│       ├── tw_anniversary.mp4
+│       ├── dance_competition.mp4
+│       ├── anniversary_show1.mp4
+│       └── anniversary_show2.mp4
+└── ...
